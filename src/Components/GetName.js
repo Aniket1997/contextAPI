@@ -1,22 +1,24 @@
-import React,{useState} from 'react'
+import React, { useState } from 'react';
 import ChildA from './ChildA';
 
 const GetName = () => {
-    const [name, setName] = useState('');
+  const [name, setName] = useState('');
+  const [verified, setVerified] = useState('');
 
-    const handleNameChange = (event) => {
-        setName(event.target.value);
-    };
+  const handleNameSubmit = (data) => {
+    setName(data);
+  };
 
-    
+  const handleVerification = (isChecked) => {
+    setVerified(isChecked ? 'Verified by Component A' : 'Something went wrong');
+  };
 
-    return (
-        <>
-            <input type="text" value={name} onChange={handleNameChange} />
-        
-            <ChildA name={name}/>
-        </>
-    )
-}
+  return (
+    <div>
+      <ChildA name={name} onNameSubmit={handleNameSubmit} onVerification={handleVerification} />
+      {verified && <p>Verification: {verified}</p>}
+    </div>
+  );
+};
 
-export default GetName
+export default GetName;

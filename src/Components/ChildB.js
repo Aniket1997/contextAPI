@@ -1,8 +1,8 @@
 import React from 'react';
 import ChildC from './ChildC';
 
-const ChildB = ({ name }) => {
-  return <ChildC name={name} />;
+const ChildB = ({ name, onVerification }) => {
+  return <ChildC name={name} onVerification={onVerification} />;
 };
 
 export default ChildB;
