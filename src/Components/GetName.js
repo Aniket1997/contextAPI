@@ -1,17 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState,useCallback } from 'react';
 import ChildA from './ChildA';
 
 const GetName = () => {
   const [name, setName] = useState('');
   const [verified, setVerified] = useState('');
   const [received,setReceivedName] = useState('');
-  const handleNameSubmit = (data) => {
+  const handleNameSubmit = useCallback((data) => {
     setName(data);
-  };
+  }, []);
 
-  const handleVerification = (isChecked) => {
+  const handleVerification = useCallback((isChecked) => {
     setVerified(isChecked ? 'Verified' : 'Something went wrong');
-  };
+  }, []);
   const handleSubmit = () => {
     setReceivedName(name);
   };

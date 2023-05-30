@@ -1,13 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState,useCallback } from 'react';
 
 const ChildC = ({ name, onVerification }) => {
   const [isChecked, setIsChecked] = useState(false);
 
-  const handleCheckboxChange = (event) => {
+  const handleCheckboxChange = useCallback((event) => {
     const checked = event.target.checked;
     setIsChecked(checked);
     onVerification(checked);
-  };
+  }, [onVerification]);
 
   return (
     <div>

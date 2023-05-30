@@ -1,10 +1,10 @@
-import React from 'react';
+import React,{useCallback} from 'react';
 import ChildB from './ChildB';
 
 const ChildA = ({ name, onNameSubmit, onVerification }) => {
-  const handleSubmit = () => {
+  const handleSubmit = useCallback(() => {
     onNameSubmit(name);
-  };
+  }, [name, onNameSubmit]);
 
   return (
     <div>
